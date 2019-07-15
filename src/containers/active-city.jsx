@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 class ActiveCity extends Component {
     static defaultProps = {
         city: { name: "Paris", address: "16 Villa Gaudelet, 75011 Paris", slug: "paris" }        
@@ -18,4 +21,11 @@ class ActiveCity extends Component {
         )
     }
 }
-export default ActiveCity;
+
+function mapReduxStateToProps(reduxState) {
+    return {
+      activeCity: reduxState.activeCity
+    };
+}
+
+export default connect(mapReduxStateToProps)(ActiveCity);

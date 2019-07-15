@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import City from './city.jsx'
 class CityList extends Component {
     static defaultProps = {
@@ -15,4 +18,11 @@ class CityList extends Component {
         )
     }
 }
-export default CityList;
+
+function mapReduxStateToProps(reduxState) {
+    return {
+      cities: reduxState.cities
+    };
+}
+  
+export default connect(mapReduxStateToProps)(CityList);
