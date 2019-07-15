@@ -8,9 +8,13 @@ import { createStore, combineReducers } from 'redux';
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
+import CitiesReducer from './reducers/cities-reducer.js';
+import ActiveCityReducer from './reducers/active-city-reducer.js';
+
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  cities: CitiesReducer,
+  activeCity: ActiveCityReducer
 });
 
 // render an instance of the component in the DOM
